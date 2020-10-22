@@ -61,6 +61,7 @@ char* gato[NUM_ITEMS] ={
 
 void loop() 
 {
+  display.clearDisplay();
   canvas1.drawTable(1,1,labels);
   
   canvas2.drawTable(3,3, gato, GATO_Y, GATO_X);
@@ -93,8 +94,9 @@ void loop()
                         break; 
       }
       delay(200);
-      display.clearDisplay();
   }
+
+  display.display();
  
 }
 
@@ -139,19 +141,17 @@ void isGameOver(void)
         if(gato[convinacion[i][2]] == X_O[selJugador])
             puntos++;
         
-        if(puntos == 3)
+ 
+        while(puntos == 3)
         {
             display.clearDisplay();
-            while(1)
-            {
-                labels[0] = (selJugador) ? labels[2] : labels[1];
-                canvas1.drawTable(1,1,labels);
-                canvas2.drawTable(3,3, gato, (int)(convinacion[i][0] / 3), (int)(convinacion[i][0] % 3));
-                canvas2.drawTable(3,3, gato, (int)(convinacion[i][1] / 3), (int)(convinacion[i][1] % 3));
-                canvas2.drawTable(3,3, gato, (int)(convinacion[i][2] / 3), (int)(convinacion[i][2] % 3));
-                //display.drawLine();
-             }
-        }
+            labels[0] = (selJugador) ? labels[2] : labels[1];
+            canvas1.drawTable(1,1,labels);
+            canvas2.drawTable(3,3, gato, (int)(convinacion[i][0] / 3), (int)(convinacion[i][0] % 3));
+            canvas2.drawTable(3,3, gato, (int)(convinacion[i][1] / 3), (int)(convinacion[i][1] % 3));
+            canvas2.drawTable(3,3, gato, (int)(convinacion[i][2] / 3), (int)(convinacion[i][2] % 3));
+            display.display();
+         }
             
     }
 
