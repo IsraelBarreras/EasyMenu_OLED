@@ -1,0 +1,5 @@
+EasyMenu	KEYWORD1
+drawTable	KEYWORD2
+drawGrill	KEYWORD2
+drawMenu	KEYWORD2
+drawParameterTable		KEYWORD2
